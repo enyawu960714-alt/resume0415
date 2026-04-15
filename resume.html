@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>學習歷程自述 - 吳念恩</title>
 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    display: flex;
+    background: #f4f6f9;
+}
+
+/* 側邊欄 */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar li {
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    background: #34495e;
+}
+
+/* 主內容 */
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* 卡片 */
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* 照片 */
+.profile {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* 區塊切換 */
+.section {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+/* 音樂按鈕 */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 側邊 -->
+<div class="sidebar">
+    <h2>學習歷程</h2>
+    <ul>
+        <li onclick="showSection('intro')">自我介紹</li>
+        <li onclick="showSection('resume')">基本資料</li>
+        <li onclick="showSection('experience')">幹部經歷</li>
+    </ul>
+</div>
+
+<!-- 主內容 -->
+<div class="content">
+
+    <!-- 自我介紹 -->
+    <div id="intro" class="section active">
+        <div class="card">
+            <img src="images/profile.jpg" class="profile">
+            <h1>吳念恩</h1>
+            <p>亞洲大學｜聽力暨語言治療學系</p>
+            <p>興趣：跳舞、寫文章</p>
+            <p>「凡心之所嚮，無處不可任意翱翔。」</p>
+        </div>
+    </div>
+
+    <!-- 基本資料 -->
+    <div id="resume" class="section">
+        <div class="card">
+            <h1>基本資料</h1>
+            <p>學號：AU114018093</p>
+            <p>個性：細心、有創造力、靈活變通</p>
+            <p>能力：溝通、領導、分析</p>
+        </div>
+    </div>
+
+    <!-- 經歷 -->
+    <div id="experience" class="section">
+        <div class="card">
+            <h1>幹部經歷</h1>
+            <ul>
+                <li>高一：班長、合唱團副團長</li>
+                <li>高二：班聯會公關、國文科長</li>
+                <li>高三：學藝股長</li>
+                <li>大一：班代</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- 🎵 音樂 -->
+<audio id="bgm" loop>
+    <source src="music/bgm.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<script>
+// 切換頁面
+function showSection(id) {
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+// 音樂控制
+let music = document.getElementById("bgm");
+let playing = false;
+
+function toggleMusic() {
+    if (playing) {
+        music.pause();
+    } else {
+        music.play();
+    }
+    playing = !playing;
+}
+</script>
+
+</body>
+</html>
