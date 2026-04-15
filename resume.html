@@ -2,72 +2,72 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<title>學習歷程自述 - 吳念恩</title>
+<title>學習歷程自述</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Microsoft JhengHei", sans-serif;
-}
-
 body {
-    display: flex;
-    background: #f4f6f9;
+    margin: 0;
+    font-family: "Microsoft JhengHei";
+    background: #f5f7fa;
 }
 
-/* 側邊欄 */
-.sidebar {
-    width: 220px;
+/* 主容器 */
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
     height: 100vh;
+}
+
+/* 左邊（個人區） */
+.left {
     background: #2c3e50;
     color: white;
     padding: 20px;
+    text-align: center;
 }
 
-.sidebar h2 {
-    margin-bottom: 20px;
-}
-
-.sidebar li {
-    list-style: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.sidebar li:hover {
-    background: #34495e;
-}
-
-/* 主內容 */
-.content {
-    flex: 1;
-    padding: 30px;
-}
-
-/* 卡片 */
-.card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-/* 照片 */
 .profile {
     width: 150px;
     border-radius: 50%;
     margin-bottom: 15px;
 }
 
-/* 區塊切換 */
-.section {
-    display: none;
+.left h2 {
+    margin: 10px 0;
 }
-.active {
+
+/* 右邊（內容區） */
+.right {
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+/* 區塊卡片 */
+.card {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+h3 {
+    border-left: 5px solid #2c3e50;
+    padding-left: 10px;
+}
+
+/* 成績條 */
+.bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.bar span {
     display: block;
+    height: 100%;
+    background: #3498db;
+    border-radius: 5px;
 }
 
 /* 音樂按鈕 */
@@ -81,51 +81,63 @@ body {
     padding: 15px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 18px;
+}
+
+/* Email */
+.email {
+    margin-top: 15px;
+    display: block;
+    color: #1abc9c;
+    text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 側邊 -->
-<div class="sidebar">
-    <h2>學習歷程</h2>
-    <ul>
-        <li onclick="showSection('intro')">自我介紹</li>
-        <li onclick="showSection('resume')">基本資料</li>
-        <li onclick="showSection('experience')">幹部經歷</li>
-    </ul>
-</div>
+<div class="container">
 
-<!-- 主內容 -->
-<div class="content">
+    <!-- 左側 -->
+    <div class="left">
+        <img src="images/profile.jpg" class="profile">
 
-    <!-- 自我介紹 -->
-    <div id="intro" class="section active">
-        <div class="card">
-            <img src="images/profile.jpg" class="profile">
-            <h1>吳念恩</h1>
-            <p>亞洲大學｜聽力暨語言治療學系</p>
-            <p>興趣：跳舞、寫文章</p>
-            <p>「凡心之所嚮，無處不可任意翱翔。」</p>
-        </div>
+        <h2>吳念恩</h2>
+        <p>亞洲大學</p>
+        <p>聽力暨語言治療系</p>
+
+        <p>「凡心之所嚮，<br>無處不可任意翱翔。」</p>
+
+        <!-- 📧 Email -->
+        <a class="email" href="mailto:enyawu960714@gmail.com">
+            📧 enyawu960714@gmail.com
+        </a>
     </div>
 
-    <!-- 基本資料 -->
-    <div id="resume" class="section">
-        <div class="card">
-            <h1>基本資料</h1>
-            <p>學號：AU114018093</p>
-            <p>個性：細心、有創造力、靈活變通</p>
-            <p>能力：溝通、領導、分析</p>
-        </div>
-    </div>
+    <!-- 右側 -->
+    <div class="right">
 
-    <!-- 經歷 -->
-    <div id="experience" class="section">
         <div class="card">
-            <h1>幹部經歷</h1>
+            <h3>自我介紹</h3>
+            <p>細心、有創造力、靈活變通，具備良好溝通與領導能力。</p>
+        </div>
+
+        <div class="card">
+            <h3>就讀動機</h3>
+            <p>對語言與溝通有興趣，希望幫助他人改善表達能力。</p>
+        </div>
+
+        <div class="card">
+            <h3>學習反思</h3>
+            <p>善於分析與觀察，能持續提出新想法與策略。</p>
+        </div>
+
+        <div class="card">
+            <h3>未來規劃</h3>
+            <p>成為專業語言治療師，持續進修提升能力。</p>
+        </div>
+
+        <div class="card">
+            <h3>幹部經歷</h3>
             <ul>
                 <li>高一：班長、合唱團副團長</li>
                 <li>高二：班聯會公關、國文科長</li>
@@ -133,6 +145,36 @@ body {
                 <li>大一：班代</li>
             </ul>
         </div>
+
+        <div class="card">
+            <h3>競賽與證照</h3>
+            <ul>
+                <li>全民英檢中級</li>
+                <li>作文競賽佳作</li>
+                <li>英文簡報入選</li>
+                <li>全國合唱比賽優等</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>在校成績</h3>
+            <p>國文</p>
+            <div class="bar"><span style="width:80%"></span></div>
+
+            <p>英文</p>
+            <div class="bar"><span style="width:75%"></span></div>
+        </div>
+
+        <div class="card">
+            <h3>多元修課</h3>
+            <p>化學、科技與社會、世界廚房、同理優勢訓練</p>
+        </div>
+
+        <div class="card">
+            <h3>特殊表現</h3>
+            <p>國二到高二擔任班上聖歌指揮</p>
+        </div>
+
     </div>
 
 </div>
@@ -145,14 +187,6 @@ body {
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
 <script>
-// 切換頁面
-function showSection(id) {
-    let sections = document.querySelectorAll('.section');
-    sections.forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-
-// 音樂控制
 let music = document.getElementById("bgm");
 let playing = false;
 
